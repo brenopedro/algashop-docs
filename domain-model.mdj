@@ -2961,7 +2961,7 @@
 											"top": 1544,
 											"width": 223,
 											"height": 13,
-											"text": "-name: ProductName",
+											"text": "-productName: ProductName",
 											"horizontalAlignment": 0
 										},
 										{
@@ -6054,9 +6054,9 @@
 									},
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 1097,
+									"left": 1096,
 									"top": 853,
-									"width": 37.57177734375,
+									"width": 38.2763671875,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 30,
@@ -9275,7 +9275,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGXf3yIdC2m9uk="
 							},
-							"name": "name",
+							"name": "productName",
 							"visibility": "private",
 							"type": "ProductName"
 						},
