@@ -1,0 +1,174 @@
+openapi: 3.0.4
+
+info:
+  title: Algashop - Ordering
+  version: "1.0"
+
+servers:
+  - description: Development
+    url: "http://localhost:8080"
+  - description: Production
+    url: "https://api.algashop.com"
+
+paths:
+  /api/v1/customers:
+    post:
+      description: Register new customer
+      tags:
+        - Customers
+    get:
+      description: List customers
+      tags:
+        - Customers
+  /api/v1/customers/{customerId}:
+    get:
+      parameters:
+        - schema:
+            type: string
+          name: customerId
+          in: path
+          required: true
+          example: "123e4567-e89b-12d3-a456-426614174000"
+      description: Get customer by id
+      tags:
+        - Customers
+    put:
+      parameters:
+        - schema:
+            type: string
+          name: customerId
+          in: path
+          required: true
+          example: "123e4567-e89b-12d3-a456-426614174000"
+      description: Edit customer details
+      tags:
+        - Customers
+    delete:
+      parameters:
+        - schema:
+            type: string
+          name: customerId
+          in: path
+          required: true
+          example: "123e4567-e89b-12d3-a456-426614174000"
+      description: Delete customer
+      tags:
+        - Customers
+
+  components:
+    schemas:
+      Customer:
+        type: object
+        properties:
+          id:
+            type: string
+            example: "123e4567-e89b-12d3-a456-426614174000"
+            format: uuid
+          firstName:
+            type: string
+            example: "John"
+          lasName:
+            type: string
+            example: "Doe"
+          email:
+            type: string
+            example: "johndoe@gmail.com"
+            format: email
+          document:
+            type: string
+            example: "12345678900"
+          phone:
+            type: string
+            example: "+5511999999999"
+          birthDate:
+            type: string
+            example: "1990-01-01"
+            format: date
+          loyaltyPoints:
+            type: number
+            example: 100
+          registeredAt:
+            type: string
+            example: "2024-01-01T12:00:00Z"
+            format: date-time
+          archivedAt:
+            type: string
+            example: "2024-01-01T12:00:00Z"
+            format: date-time
+          promotionNotificationsAllowed:
+            type: boolean
+            example: true
+          archived:
+            type: boolean
+            example: false
+          address:
+            $ref: "#/components/schemas/Address"
+      Address:
+        type: object
+        properties:
+          street:
+            type: string
+            example: "Main Street"
+          number:
+            type: string
+            example: "123"
+          complement:
+            type: string
+            example: "Apt 456"
+          neighborhood:
+            type: string
+            example: "Downtown"
+          city:
+            type: string
+            example: "São Paulo"
+          state:
+            type: string
+            example: "SP"
+          zipCode:
+            type: string
+            example: "12345-678"
+      CustomerInput:
+        type: object
+        properties:
+          firstName:
+            type: string
+            example: "John"
+          lasName:
+            type: string
+            example: "Doe"
+          email:
+            type: string
+            example: "johndoe@gmail.com"
+            format: email
+          document:
+            type: string
+            example: "12345678900"
+          phone:
+            type: string
+            example: "+5511999999999"
+          birthDate:
+            type: string
+            example: "1990-01-01"
+            format: date
+          promotionNotificationsAllowed:
+            type: boolean
+            example: true
+          address:
+            $ref: "#/components/schemas/Address"
+      CustomerUpdateInput:
+        type: object
+        properties:
+          firstName:
+            type: string
+            example: "John"
+          lasName:
+            type: string
+            example: "Doe"
+          phone:
+            type: string
+            example: "+5511999999999"
+          promotionNotificationsAllowed:
+            type: boolean
+            example: true
+          address:
+            $ref: "#/components/schemas/Address"
